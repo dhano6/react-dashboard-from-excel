@@ -1,0 +1,33 @@
+{
+  "name": "react-dashboard-from-excel",
+  "version": "1.0.0",
+  "description": "Dashboard displaying data from excel",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "axios": "0.18.0",
+    "bootstrap": "4.3.1",
+    "fusioncharts": "3.13.4",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-dropdown": "1.6.4",
+    "react-fusioncharts": "3.0.0",
+    "react-scripts": "2.1.8"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

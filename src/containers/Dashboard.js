@@ -21,7 +21,7 @@ const Dashboard = props => {
   }
 
   return (
-    <div className="container-fluid pr-5 pl-5 pt-5 pb-5">
+    <div className="container-fluid pr-5 pl-5 pt-5">
       {/* row 1 - revenue */}
       <div className="row">
         <Card heading={"Total Revenue"} value={props.totalR} revenue />

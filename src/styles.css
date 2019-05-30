@@ -59,6 +59,7 @@ body {
   font-family: "Roboto", sans-serif !important;
   color: rgb(255, 255, 255);
   padding-top: 125px;
+  font-weight: 500;
 }
 
 .container-fluid {
@@ -102,6 +103,7 @@ body {
   flex-direction: column;
   padding: 1.5rem;
   height: calc(100%);
+  justify-content: space-between;
 }
 
 .chart-card {
@@ -162,6 +164,10 @@ body {
   height: 100% !important;
 }
 
+.col-md-8 .chart-container.full-height > * {
+  height: 130px !important;
+}
+
 .full-height.border-left,
 .full-height.border-right {
   border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -172,7 +178,7 @@ body {
   border-radius: 4px;
   background: transparent;
   border: 1px solid rgba(193, 204, 222, 0.2);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .Dropdown-menu {

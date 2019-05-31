@@ -35,44 +35,47 @@ const App = props => {
 
   useEffect(() => {
     // Fetch data from excel and store it in state
-    axios.get(url).then(response => {
-      let batchRows = response.data.valueRanges[0].values;
-      const rows = [];
-      const header = batchRows[0];
+    axios
+      .get(url)
+      .then(response => {
+        let batchRows = response.data.valueRanges[0].values;
+        const rows = [];
+        const header = batchRows[0];
 
-      // Remove header from array
-      batchRows.splice(0, 1);
+        // Remove header from array
+        batchRows.splice(0, 1);
 
-      // Transform Array of Arrays to Array of Objects
-      for (const rowArray of batchRows) {
-        const rowObject = {};
-        let i = 0;
-        for (const rowArrayValue of rowArray) {
-          rowObject[header[i]] = rowArrayValue;
-          i++;
+        // Transform Array of Arrays to Array of Objects
+        for (const rowArray of batchRows) {
+          const rowObject = {};
+          let i = 0;
+          for (const rowArrayValue of rowArray) {
+            rowObject[header[i]] = rowArrayValue;
+            i++;
+          }
+          rows.push(rowObject);
         }
-        rows.push(rowObject);
-      }
 
-      // Create options for dropdown from months
-      let options = [];
-      for (const row of rows) {
-        options.push(row.month);
-      }
-      // Remove duplicate months and sort
-      options = Array.from(new Set(options)).reverse();
+        // Create options for dropdown from months
+        let options = [];
+        for (const row of rows) {
+          options.push(row.month);
+        }
+        // Remove duplicate months and sort
+        options = Array.from(new Set(options)).reverse();
 
-      setItems(rows);
-      setDropdownOptions(options);
-      setDropdownSelected(options[0]);
-    });
+        setItems(rows);
+        setDropdownOptions(options);
+        setDropdownSelected(options[0]);
+      })
+      .catch(err => console.error("Error fetching data..."));
   }, []);
 
   // 2 approaches:
   // 1. change of dropdown triggers updateDashboard callback and that triggers refreshData
   // with direct passing month parameter to it
   // in this case we dont need useCallback hook and also dont watch dropdownSelected state variable
-  // updating state in this function causes rerender
+  // updating state in refreshData function causes rerender
   // 2. if I want to display data after fetching from API on application start I need to use
   // another useEffect that monitors dropdownSelected state variable and when this variable
   // changes I update screen, so I need to include refreshData as dependency for this useEffect

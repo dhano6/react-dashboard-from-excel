@@ -8,14 +8,14 @@ const formatNumber = number => {
     { value: 1e15, symbol: "p" },
     { value: 1e18, symbol: "e" }
   ];
-  let rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+  let regex = /\.0+$|(\.[0-9]*[1-9])0+$/;
   let i;
   for (i = si.length - 1; i > 0; i--) {
     if (number >= si[i].value) {
       break;
     }
   }
-  return (number / si[i].value).toFixed(2).replace(rx, "$1") + si[i].symbol;
+  return (number / si[i].value).toFixed(2).replace(regex, "$1") + si[i].symbol;
 };
 
 export default formatNumber;

@@ -12,7 +12,7 @@ const nav = props => {
           options={props.options}
           onChange={props.updateDashboard}
           value={props.selected}
-          placeholder="Select an option"
+          placeholder="Loading..."
         />
       </div>
     </nav>

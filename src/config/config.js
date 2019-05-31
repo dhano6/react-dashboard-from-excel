@@ -1,5 +1,5 @@
 const config = {
-  apiKey: "",
+  apiKey: "AIzaSyC4aUhx2lqpCihmQ6Cw2sKak98RC3TwijE",
   spreadsheetId: "1SjmC8uAhKuTiuNfifilCZKJh4lOznNTcobF6WRCRILE"
 };
 
